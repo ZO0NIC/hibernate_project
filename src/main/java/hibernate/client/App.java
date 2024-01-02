@@ -13,7 +13,7 @@ public class App {
 	public static void main(String[] args) {
 		Employee e = new Employee();
 		//e.setId(2);
-		e.setName("zodo");
+		e.setName("zzzhaok");
 		e.setGender("Male");
 		e.setSalary(22200);
 		
