@@ -1,34 +1,33 @@
 package hibernate.client;
 
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 import hibernate.entity.Employee;
-import hibernate.util.hibernateconfig;
 
 public class App {
 
 	public static void main(String[] args) {
-		Employee e = new Employee();
-		//e.setId(2);
-		e.setName("zodo");
-		e.setGender("Male");
-		e.setSalary(22200);
+		Employee vikas = new Employee();
+//		vikas.setId(4);
+		vikas.setName("kunal");
+		vikas.setGender("Male");
+		vikas.setSalary(12222);
 		
-		//Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-		//SessionFactory sf = cfg.buildSessionFactory();
-		
-		SessionFactory ssr = hibernateconfig.getSessionFactory();
-		Session session = ssr.openSession();
+		StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate1.cfg.xml").build();
+		Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();
+		SessionFactory sf = meta.getSessionFactoryBuilder().build();
+		Session session = sf.openSession();
 		Transaction tx = session.beginTransaction();
 		
-		session.save(e);
-		//session.update(e);
-		
-		//e=session.get(Employee.class, 2);
-		//System.out.println(e);
+		Employee e = session.get(Employee.class, 2);
+		System.out.println(e);
+		session.save(vikas);
 		tx.commit();
 		
 	}
