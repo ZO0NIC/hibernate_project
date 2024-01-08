@@ -22,4 +22,8 @@ public class Employee {
 	private int id;
 	@Column
 	private int salary;
+	@Override
+	public String toString() {
+		return "Employee [name=" + name + ", gender=" + gender + ", id=" + id + ", salary=" + salary + "]";
+	}
 }
