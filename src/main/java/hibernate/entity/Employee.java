@@ -11,7 +11,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity(name = "ducat_emp")
+@Entity//(name = "ducat_emp")
 public class Employee {
 	@Column(name="userName")
 	private String name;
