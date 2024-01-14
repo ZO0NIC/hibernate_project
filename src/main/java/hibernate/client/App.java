@@ -32,6 +32,9 @@ public class App {
 		Query query1=session.createQuery("from Employee");
 		List list=query1.list();  
 		System.out.println(list);
+		Query q=session.createQuery("select max(name) from Employee");  
+		List<Integer> list1=q.list();  
+		System.out.println(list1.get(0)); 
 		//session.save(e);
 		
 		//e=session.get(Employee.class, 2);
