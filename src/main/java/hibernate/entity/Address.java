@@ -1,11 +1,13 @@
 package hibernate.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Transient;
 
 @Entity
@@ -16,14 +18,14 @@ public class Address {
 	public String street;
 	public String city;
 	
-	@ManyToOne
-	public Employee employee;
+	@ManyToMany
+	public List<Employee> employee;
 	
-	public Employee getEmployee() {
+	public List<Employee> getEmployee() {
 		return employee;
 	}
 
-	public void setEmployee(Employee employee) {
+	public void setEmployee(List<Employee> employee) {
 		this.employee = employee;
 	}
 

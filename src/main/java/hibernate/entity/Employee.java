@@ -16,7 +16,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity//(name = "ducat_emp")
-//"ak","Male",69420
 public class Employee {
 	public Employee() {
 		super();
