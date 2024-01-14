@@ -1,6 +1,7 @@
 package hibernate.client;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -61,11 +62,26 @@ public class App {
 		e.setName("ak");
 		e.setGender("Male");
 		e.setSalary(69420);
-		Address address = new Address("GZB", "UP");
+		Address a1 = new Address("123 Main Street", "Springfield");
+		Address a2 = new Address("456 Oak Lane", "Lakeside");
+		Address a3 = new Address("789 Maple Avenue", "Mountain View");
+		Address a4 = new Address("987 Pine Street", "Rivertown");
+		Address a5 = new Address("654 Cedar Road", "Harmony City");
+		Address a6 = new Address("321 Sunset Boulevard", "Sunset City");
+		a1.setEmployee(e);
+		a2.setEmployee(e);
+		a3.setEmployee(e);
+		a4.setEmployee(e);
+		a5.setEmployee(e);
+		a6.setEmployee(e);
+		List<Address> ad = new ArrayList<>();
+		ad.add(a1);
+		ad.add(a2);
+		ad.add(a3);
+		ad.add(a4);
+		ad.add(a5);
 //		address.employee = e;
-		e.setAddress(address);
-		address.setEmployee(e);
-		session.persist(address);
+		e.setAddress(ad);
 		session.persist(e);
 //		Employee e1 = new Employee();
 //		e1.setFirstName("Mihir");
