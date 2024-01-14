@@ -38,7 +38,6 @@ public class App {
 		//System.out.println(e);
 		tx.commit();
 		session.close();
-		ssr.close();
 	}
 
 }
