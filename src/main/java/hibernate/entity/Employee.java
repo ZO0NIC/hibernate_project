@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 //import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,6 +23,9 @@ public class Employee {
 	private int id;
 	@Column
 	private int salary;
+	@OneToOne//(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "addFK")
+	private Address address;
 	@Override
 	public String toString() {
 		return "Employee [name=" + name + ", gender=" + gender + ", id=" + id + ", salary=" + salary + "]";

@@ -20,11 +20,12 @@ public class hibernateconfig {
 		ps.put("hibernate.connection.password", "root");
 		ps.put(Environment.SHOW_SQL, "true");
 		ps.put(Environment.FORMAT_SQL, "true");
-		ps.put(Environment.HBM2DDL_AUTO, "update");
+		ps.put(Environment.HBM2DDL_AUTO, "create");
+		
 
 		StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().applySettings(ps).build();
 		// Create a MetadataSources and add annotated entity classes
-		MetadataSources metadataSources = new MetadataSources(ssr).addAnnotatedClass(hibernate.entity.Employee.class);
+		MetadataSources metadataSources = new MetadataSources(ssr).addAnnotatedClass(hibernate.entity.Employee.class).addAnnotatedClass(hibernate.entity.Address.class);
 		Metadata meta = metadataSources.buildMetadata();
 		// Create a SessionFactory
 		SessionFactory sessionFactory = meta.buildSessionFactory();
